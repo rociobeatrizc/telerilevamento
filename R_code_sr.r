@@ -6,86 +6,88 @@ library(raster)
 # Setting work directory
 setwd("C:/lab")
 
-# import
+# Import
 l2011 <- brick("p224r63_2011.grd") 
 l2011
 
-# plot in generic space xy
+# Plot in generic space xy
 plot(l2011)
 
-cl <- colorRampPalette(c("black", "grey", "light grey")) (100)
 # https://www.r-graph-gallery.com/42-colors-names.html  Colors 
+cl <- colorRampPalette(c("black", "grey", "light grey")) (100)
 plot(l2011, col = cl) 
+# dev.off() function that turns off images 
 
-# Banda 4, riflettanza elevata. Se c'è vegetazione, c'è alta riflettanza. Legenda ad ogni singola banda. 
+# Band 4, high reflectance (vegetation) 
 
 # Bande Landsat
-# B1: blu
-# B2: verde
-# B3: rosso
-# B4: infrarosso vicino
+# B1: blue
+# B2: green
+# B3: red
+# B4: NIR
 # B5: infrarosso medio
 # B6: infrarosso termico
 # B7: infrarosso medio
 
-# Plot di una singola banda, quella del blu (B1_sre)
-plot(l2011$B1_sre, col=cl)
-plot(l2011[[1]])
+# Blue band (B1_sre) 
+plot(l2011$B1_sre, col=cl) #by calling by name
+plot(l2011[[1]]) #by position 
 
+# Plot B1 (blue) from dark blue to blue to light blue
 cl_2 <- colorRampPalette(c("dark blue", "blue", "light blue")) (100)
 plot(l2011$B1_sre, col=cl_2)
 
-# Export as PDF in lab folder. Immagine quasi vettoriale
+# Export as PDF in lab folder: nearly a vector image
 pdf("banda1.pdf")
 plot(l2011$B1_sre, col=cl_2)
 dev.off()
 
-# png 
+# Export as png image 
 png("banda1.png")
 plot(l2011$B1_sre, col=cl_2)
 dev.off()
 
-# plot B2 from dark green to green to light green
+# Plot B2 (green) from dark green to green to light green
 cl_3 <- colorRampPalette(c("dark green", "green", "light green")) (100)
 plot(l2011$B2_sre, col=cl_3)
 
-# Export Multiframe. Una riga, due colonne. Array: insieme di caratteri uniti da c
+# Export Multiframe: 1 stands for one row, 2 for two columns. An array is an ensemble of characters united by c. 
 pdf("multiframe.pdf")
 par(mfrow= c(1,2))
 plot(l2011$B1_sre, col=cl_2)
 plot(l2011$B2_sre, col=cl_3)
-dev.off()
+# dev.off() to turn off
 
 # Revert MF
 par(mfrow= c(2,1))
 plot(l2011$B1_sre, col=cl_2)
 plot(l2011$B2_sre, col=cl_3)
 
+# Two new palettes for red and NIR channels
 cl_4 <- colorRampPalette(c("dark red", "red", "pink"))(100) #Red
 cl_5 <- colorRampPalette(c("red", "orange", "yellow"))(100) #NIR
-# MF con le 4 bande
+
+# MF of all bands 
 par(mfrow= c(2,2))
 plot(l2011$B1_sre, col=cl_2)
 plot(l2011$B2_sre, col=cl_3)
 plot(l2011$B3_sre, col=cl_4) #Red
 plot(l2011$B4_sre, col=cl_5 ) #NIR
 
-# Oggi creiamo immagini a colori. 
-# Si possono montare bande insieme per creare immagini a colori. RGB. 
+# Color images can be created by assembling bands: we use RGB system.  
 
 # NIR channel
 cl_6 <- colorRampPalette(c("coral", "coral3", "dark red")) (100)
 plot(l2011$B4_sre, col=cl_6)
 dev.off()
 
-# RGB components. Qualsiasi computer/apparato lavora con lo schema dei tre colori fondamentali: rosso, verde, blu.
-# Un plottaggio satellitare richiede tre bande per volta, che vanno montate in corrispondenza dello schema RGB.
+# RGB components. Every device works with the 3 essential colors scheme: red, green, blue.
+# A satellitar plot needs three channels at once, assembled in correspondence of RGB scheme. 
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin") # stretch (linear or by histograms) amplifies and allows us to better see contrasts. 
 
-plotRGB(l2011, r=3, g=2, b=1, stretch="lin") #Amplia per vedere meglio i contrasti, può essere lineare o a istogrammi
+# Pairing red with NIR
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin") 
 
-# Rappresenta la riserva naturale a 800 km esattamente come le vedrebbe l'occhio umano. 
-
-plotRGB(l2011, r=4, g=3, b=2, stretch="lin") #Facendo scorrere associo al RED il "colore" infrarosso
 
 # Le piante riflettono molto nell'infrarosso, il tessuto a palizzata fa sì che rimbalzi (venga riflesso) il NIR. 
 # Tutto quello che riflette nel NIR diventa di colore rosso. Nel mezzo ci sono zome d'ombra (polmone)
