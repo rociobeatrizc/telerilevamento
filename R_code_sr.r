@@ -85,49 +85,31 @@ dev.off()
 # A satellitar plot needs three channels at once, assembled in correspondence of RGB scheme. 
 plotRGB(l2011, r=3, g=2, b=1, stretch="lin") # stretch (linear or by histograms) amplifies and allows us to better see contrasts. 
 
-# Pairing red with NIR
+# Pairing red with NIR means colour in red everything that reflects in NIR. Plants reflect radiation in IR. 
 plotRGB(l2011, r=4, g=3, b=2, stretch="lin") 
 
-
-# Le piante riflettono molto nell'infrarosso, il tessuto a palizzata fa sì che rimbalzi (venga riflesso) il NIR. 
-# Tutto quello che riflette nel NIR diventa di colore rosso. Nel mezzo ci sono zome d'ombra (polmone)
-
-# Si sposta l'infrarosso nella componente GREEN. Tutto quello che riflette nel NIR diventa verde. 
-
+# Shifting IR in green component. 
 plotRGB(l2011, r=3, g=4, b=2, stretch="lin")
 
-# Differenza di potenziale. 
-# L'aria si muove da alta a bassa pressione. La pianta convince l'acqua in alta pressione (basso) a 
-# tirare su acqua. Traspira tutta l'acqua dall'alto, la pressione diminuisce sulla chioma e l'acqua va verso l'alto.
-# Meccanismo ciclico, rilascio d'acqua che torna in forma di pioggia. 
-# Geometria frattale. I rami di una pianta si ripetono nello spazio. 
+# Yellow = bare soil.  
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin") 
 
-plotRGB(l2011, r=3, g=2, b=4, stretch="lin") #Tutto quello che diventa giallo è suolo nudo. 
+plotRGB(l2011, r=3, g=4, b=2, stretch="hist") # With "hist" we see elements that otherwise we wouldn't see. 
 
-# Stretch lineare. Presa una certa banda, in ascissa vedo le riflettanze: se queste vanno da un valore ad
-# un valore preciso, prendo una funzione lineare per riportare a 0 ciò che ha il valore minimo
-# e a 100 ciò che ha il valore massimo. Ampliamento dei valori possibili. 
+# Exercise: build a multiframe with visible RGB (linear stretch) on top of false colours (histogram stretch). 
+par(mfrow= c(2,1)) 
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin") # Human sight
+plotRGB(l2011, r=3, g=4, b=2, stretch="hist") # High resolution power
 
-# Stretch per istogrammi. Invece di usare una funzione lineare, si usa una curva che provoca un forte aumento. 
-
-plotRGB(l2011, r=3, g=4, b=2, stretch="hist") 
-# Alta differenziazione nelle colorazioni, si vedono elementi che altrimenti non si vedono. 
-# Il NIR governa nel caso di vegetazione. Non c'è una composizione ideale. 
-# Exercise: build a multiframe with visible RGB (lin. stretch) on top of false colours
-# (hist. stretch)
-
-par(mfrow= c(2,1)) #si ragiona per RIGHE
-plotRGB(l2011, r=3, g=2, b=1, stretch="lin") #occhio umano
-plotRGB(l2011, r=3, g=4, b=2, stretch="hist") #alta potenza risolutiva 
-
+# Exercise: upload the image from 1988
 l1988 <- brick("p224r63_1988.grd")
 l1988
-dev.off()
+# dev.off()
 
 par(mfrow= c(2,1))
 plotRGB(l1988, r=4, g=3, b=2, stretch="lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
 
-#1988: inizio urbanizzazione, il colore è dovuto alla foschia. 
-# Ora c'è una riserva naturale, motivo del bordo. Il sistema intorno deve essere sostenibile. 
+# sessionInfo()
+# Sys.time()
 
