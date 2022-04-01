@@ -83,4 +83,6 @@ dev.off()
                 
 si2006 <- spectralIndices(l2006, green=3, red=2, nir=1)
 plot(si2006, col=cl)
+
+# All lands 
 plot(copNDVI)
