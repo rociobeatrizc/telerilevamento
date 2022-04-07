@@ -36,7 +36,7 @@ rlist <- list.files(pattern="lst")
 import <- lapply(rlist, raster)
 import
 
-# stack functions puts layers together in a single file, like a satellitar frame. 
+# stack function puts layers together in a single file, like a satellitar frame. 
 tgr <- stack(import)
 tgr
 dev.off()
