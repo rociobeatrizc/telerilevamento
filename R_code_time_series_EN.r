@@ -47,16 +47,16 @@ plot(EN11, col=cl)
 plot(EN12, col=cl)
 plot(EN13, col=cl)
 
-# Stacking vectors concatenates multiple vectors into a single vector along with a factor indicating where each observation originated.  nstacking reverses this operation
+# Stacking vectors concatenates multiple vectors into a single vector along with a factor indicating where each observation originated. 
 EN <- stack(EN01, EN02, EN03, EN04, EN05, EN06, EN07, EN08, EN09, EN10, EN11, EN12, EN13)
 
-# importing all the data together with the lapply function
+# Importing all the data together with the lapply function
 rlist <- list.files(pattern="EN")
 rlist
 list_rast <- lapply(rlist, raster)
 list_rast 
 
-# stack functions puts all the data in a single file
+# stack function puts all the data in a single file
 EN_stack <- stack(list_rast)
 EN_stack
 
