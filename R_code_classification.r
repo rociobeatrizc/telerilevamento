@@ -18,28 +18,22 @@ soc <- unsuperClass(so, nClasses=3)
 soc
 plot(soc$map)
 
-# pixel non cancora classificato 
-# come lo associo ad una classe? classe spettralmente più vicina 
-# da caricare come R_code_classification.r
-# siamo in grado di discriminare fra vari tipi mineralogici? Grand Canyon
+# It is possible to associate a pixel which is still not classificated to the nearest spectral class.  
 dev.off()
-gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg") #immagini spettrali (es rgb con tre bande) si importa con brick
+gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg") 
 gc
-plotRGB(gc, r=1, g=2, b=3, stretch="hist") #immagine solo nel visibile 
-# immagine già elaborata 
-# classificazione 
+plotRGB(gc, r=1, g=2, b=3, stretch="hist") 
+# Satellitar image already processed 
 
 gcclass2 <- unsuperClass(gc, nClasses = 2 ) #non supervisionata, numero di campioni (samples)
 gcclass2
-# La classifiocazione produce un oggetto che ha all'interno il modello in sè, la mappa in uscita, le statistiche 1variate
-# restituisce solo map come output
+# Classification gives us an object that includes the model, output map, statistics. 
 
 plot(gcclass2$map)
-# classe 1, classe 2, i valori intermedi non hanno senso. più che differenziazioni sono ombre
-# ridefinire le classi perchè fanno schifo
-
+# Two classes, two colors. 
 dev.off()
 
+# Four classes, four colors. 
 gcclass4 <- unsuperClass(gc, nClasses=4)
 gcclass4
 plot(gcclass4$map)
