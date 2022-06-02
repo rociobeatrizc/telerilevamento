@@ -1,5 +1,5 @@
 # First script
-
+# Visualizzazione dei dati satellitari in R (Dati Landsat, 30m): bande, RGB. 
 # install.packages("raster")
 library(raster)
 
