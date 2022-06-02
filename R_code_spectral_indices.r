@@ -1,12 +1,16 @@
 library(raster)
+
 install.packages("rgdal")
 library(rgdal)
+
 install.packages("RStoolbox") #Telerilevamento e PCA
 library(RStoolbox)
-library(rasterdiv)
-install.packages("rasterdiv")
 
-# Setting wd. 
+install.packages("rasterdiv")
+library(rasterdiv)
+
+
+# Setting wd 
 setwd("C:/lab")
 
 # Uploading a new image 
@@ -14,17 +18,16 @@ l1992 <- brick("defor1_.jpg")
 plot(l1992)
 l1992 
 
-# Only three channles: we can use RGB components. 
+# Only three channles: we use RGB components. 
 plotRGB(l1992, r=1, g=2, b=3, stretch="lin") 
-# Band number 1 stands for NIR: following the electromagnetic spectrum we mount the remaining two bands in sequence. 
+# Band number 1 stands for NIR: following the electromagnetic spectrum we set up the remaining two bands in sequence. 
 # Layer 1 = NIR
 # Layer 2 = red
 # Layer 3 = green
 
-# Second image: the aim is compare it with the elder image. 
+# Second image: the aim is to compare it with the elder image. 
 l2006 <- brick("defor2_.jpg")
 l2006
-
 
 plotRGB(l2006, r=1, g=2, b=3, stretch="lin")
 dev.off()
@@ -38,7 +41,8 @@ plotRGB(l2006, r=1, g=2, b=3, stretch="lin")
 dvi1992 = l1992[[1]] - l1992[[2]]
 dvi1992
 
-cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme, DVI is one layer (we don't need $) 
+# Specifying a color scheme. DVI is one layer (we don't need $) 
+cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) 
 plot(dvi1992, col=cl)
 dev.off()
 
