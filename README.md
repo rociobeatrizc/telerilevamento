@@ -6,5 +6,6 @@ Scienze e Gestione della Natura.
 2) Indici Spettrali, vegetazione ed NDVI: R_code_spectral_indices.r
 3) Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis): R_code_time_series_greenland.r 
 4) Diminuzione di ossido di azoto durante il primo lockdown (Time Series Analysis): R_code_time_series_ EN.r
-5) Modello di Distribuzione di Specie: R_code_sdm.r 
+5) Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon): R_code_classification.r 
+6) Modello di Distribuzione di Specie: R_code_sdm.r 
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171863501-35896bb0-09d6-404e-9950-c00551d8c5f0.jpg)
