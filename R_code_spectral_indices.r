@@ -1,3 +1,4 @@
+# Spectral Indices 
 library(raster)
 
 install.packages("rgdal")
@@ -80,7 +81,7 @@ par(mfrow= c(2,1))
 plot(ndvi1992, col=cl)
 plot(ndvi2006, col=cl)
 
-# RStoolbox
+# RStoolbox: spectral indices. 
 si1992 <- spectralIndices(l1992, green=3, red=2, nir=1)
 plot(si1992, col=cl)
 dev.off()
