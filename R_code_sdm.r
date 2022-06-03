@@ -36,55 +36,55 @@ dev.off()
 # Path: system.file 
 path <- system.file("external", package="sdm") 
 
-# Si prendono tutti i file con estensione asc e si crea una lista: full.names conserva il percorso
+# List of files (full.names keeps the original path).
 lst <- list.files(path=path, pattern='asc$', full.names = T) 
 lst
 
-# Essendo già dentro al pacchetto, non abbiamo bisogno della funzione brick per importare la lista. 
-# Al posto delle bande, abbiamo 4 variabili: i dati geografici sono i proxy. 
+# It is not necessary to use brick function to import the list: is already inside the package. 
+# Instead of bands, we have geographic data (proxy). 
 preds <- stack(lst)
 cl <- colorRampPalette(c('blue','orange','red','yellow')) (100)
 plot(preds, col=cl)
 
-# Assegniamo ogni predittore ad una variabile 
+# Predictors into a variable
 elev <- preds$elevation
 prec <- preds$precipitation
 temp <- preds$temperature
 vege <- preds$vegetation
 
-# Organismo a cui non piace stare a quote elevate. 
+# Exploring the specie's distribution with respect to each variable. 
+# Elevation
 plot(elev, col=cl)
 points(species[occ == 1,], col='black', pch=19)
 
-# Specie che non ama il freddo.  
+# Temperature 
 plot(temp, col=cl)
 points(species[occ == 1,], col='black', pch=19)
 
-# Medio alta quantità di precipitazioni. 
+# Precipitation 
 plot(prec, col=cl)
 points(species[occ == 1,], col='black', pch=19)
 
-# Specie che non si trova dove la vegetazione scarseggia.  
+# Vegetation 
 plot(vege, col=cl)
 points(species[occ == 1,], col='black', pch=19)
 
 dev.off()
 
-# Das Model: funzioni all'interno del pacchetto sdm. Specie e predittori sono i dati. 
-# Train, Test. 
+# Das Model: species and predictors as data. 
 datasdm <- sdmData(train=species, predictors=preds)
 
-# Modello lineare per ogni variabile. y = Occurrence (in output), le x sono i predittori. 
+# Linear model. 
+# Y (output): occurrence. 
+# X (input): predictors. 
 m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods = "glm")
 
-# Predizione della mappa finale. Oggetto raster con la probabilità di trovare la specie nello spazio: mappa di previsione.   
+# Prediction Map: raster file. 
 p1 <- predict(m1, newdata=preds)
 plot(p1, col=cl)
 points(species[species$Occurrence == 1,], pch=16)
 
-# Dati suddivisi fra Train e Test, il problema è che i dati devono essere tanti.  
-# Altro metodo: BootStrap, si tolgono una serie di dati. 
-# MultiFrame con le variabili.
+# MultiFrame with predictors.
 par(mfrow=c(2,3))
 plot(p1, col=cl)
 plot(elev, col=cl)
@@ -92,6 +92,6 @@ plot(prec, col=cl)
 plot(temp, col=cl)
 plot(vege, col=cl)
 
-# In alternativa
+# More easily: 
 final <- stack(preds, p1)
 plot(final, col=cl)
