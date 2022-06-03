@@ -3,10 +3,10 @@
 
 library(raster)
 
-# In our directory there is a set of 13  Sentinel's images, from January to March. 
+# In our directory there is a set of 13 Sentinel's images, from January to March. 
 setwd("C:/lab/EN") 
 
-# Raster function works on a single layer: in this case we consider the first image, dating back to January 2020  
+# Raster function works on a single layer: in this case we consider the first image, dating back to January 2020. 
 EN01 <- raster("EN_0001.png")
 cl <- colorRampPalette(c('red','orange','yellow'))(100) 
 plot(EN01, col=cl)
@@ -50,9 +50,11 @@ plot(EN13, col=cl)
 # Stacking vectors concatenates multiple vectors into a single vector along with a factor indicating where each observation originated. 
 EN <- stack(EN01, EN02, EN03, EN04, EN05, EN06, EN07, EN08, EN09, EN10, EN11, EN12, EN13)
 
-# Importing all the data together with the lapply function
+# Creating a list of files linked by "EN". 
 rlist <- list.files(pattern="EN")
 rlist
+
+# Importing all the data together with the lapply function
 list_rast <- lapply(rlist, raster)
 list_rast 
 
@@ -63,6 +65,7 @@ EN_stack
 # Exercise: plot only the first image of the stack
 cl <- colorRampPalette(c('red','orange','yellow'))(100) # 
 plot(EN_stack$EN_0001, col=cl)
+
 # or
 plot(EN_stack[[1]], col=cl)
 
@@ -72,14 +75,14 @@ source("name_of_your_file.r")
 # Plot EN01 besides EN13: two ways. 
 # MultiFrame
 par(mfrow=c(1,2))
-plot(stack_EN$EN_0001, col=cl, main="First image")
-plot(stack_EN$EN_0013, col=cl, main="Last Image")
+plot(EN_stack$EN_0001, col=cl, main="First image")
+plot(EN_stack$EN_0013, col=cl, main="Last Image")
 
-# Or two elements stack
-s_113 <- stack(stack_EN[[1]], stack_EN[[13]])
+# By stack 
+s_113 <- stack(EN_stack[[1]], EN_stack[[13]])
 plot(s_113, col=cl) 
 
 # Difference between first and last recording of nitrogen oxide. 
-difen <- stack_EN[[1]] - stack_EN[[13]]
+difen <- EN_stack[[1]] - EN_stack[[13]]
 cldif <- colorRampPalette(c('blue','white','red'))(100)
 plot(difen, col=cldif) 
