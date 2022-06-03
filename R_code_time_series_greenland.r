@@ -1,4 +1,4 @@
-# Time series analysis of Greenland LST data from Copernicus. 
+# Time Series Analysis of Greenland LST data from Copernicus. 
 install.packages("rasterVis")
 library(raster)
 library(rasterVis) 
@@ -15,7 +15,6 @@ lst2005 <- raster("lst_2005.tif")
 lst2010 <- raster("lst_2010.tif")
 lst2015 <- raster("lst_2015.tif")
 
-
 lst2000
 # 16 bit. 
 
@@ -30,7 +29,7 @@ plot(lst2005, col=cl)
 plot(lst2010, col=cl)
 plot(lst2015, col=cl)
 
-# In order to simplify the code, lapply is a fuction that applies raster function at each image. 
+# Simplifying, lapply fuction applies raster function to each image. 
 # First, a list is needed. 
 rlist <- list.files(pattern="lst")
 import <- lapply(rlist, raster)
