@@ -75,38 +75,40 @@ freq(l06c$map)
 # [1,]     1 163752
 # [2,]     2 178974
 
-# In proporzione: pixel di foresta/agricoltura della prima immagine rispetto al totale. 
+# Proportion of forest and agriculture pixels with respect to the total. 
+# 1992 
 l92
-# Totale pixel: 341292
+# Total: 341292
 tot92 <- 341292
 
-# Proporzione in % delle classi nella prima e nella seconda immagine. 
+# Percentage of first and second class. 
 prop_92 <- freq(l92c$map) * 100 / tot92
 prop_92
-# 10% agricoltura, 90% foresta. 
+# 10% agriculture, 90% forest. 
 
+# 2006
 prop_06 <- freq(l06c$map) * 100 / tot06
 prop_06 
-# 47% agricoltura, 52% foresta. 
+# 47% agriculture, 52% forest. 
 
-# Da freq(l92$map) si guardano i pixel di ciascuna categoria. 
-# Assegnazione
+# By freq(l92$map) we get the number of pixels for each class.
+# Allocation
 prop_forest_92 <- 306023 * 100/ tot92
 prop_agriculture_92 <- 35269 * 100/tot92
  
-# Seconda immagine 
+# 2006 
 l06
 tot06 <- 342726
 
-# Assegnazione 
+# Allocation 
 prop_forest_06 <-  178716 * 100/ tot06
 prop_agriculture_06 <- 164719 * 100/ tot06
 
-# Foresta: 90% nel 1992, 52% nel 2006
+# Forest: 90% in 1992, 52% in 2006
 prop_forest_92
 prop_forest_06
 
-# DataFrame: tre vettori, uno contiene le variabili foresta/agricoltura, gli altri due i valori corrispondenti per i due anni. 
+# DataFrame made by three vectors. 
 class <- c("Forest","Agriculture") 
 percent_1992 <- c(89.83, 10.16)
 percent_2006 <- c(52.06, 47.93)
@@ -115,16 +117,13 @@ percentages <- data.frame(class, percent_1992, percent_2006)
 percentages
 
 # Plot
-# ggplot(DataFrame, aes(x, y, color=x)) +
-# tipo_di_grafico(stat="legenda", fill="colore delle barre")
-
 plot92 <- ggplot(percentages, aes(x=class, y=percent_1992, color=class)) + 
   geom_bar(stat="identity", fill="white")
 
 plot06 <- ggplot(percentages, aes(x=class, y=percent_2006, color=class)) + 
   geom_bar(stat="identity", fill="white")
 
-# Si piuò scrivere anche così: 
+# It can be written also like this:  
 # ggplot(percentages) +    
 #   geom_bar(aes(x=class, y=percent_2006, color=class), stat="identity", fill="white")
 
