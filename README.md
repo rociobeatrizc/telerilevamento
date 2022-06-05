@@ -3,7 +3,7 @@
 ### Scienze e Gestione della Natura. 
 #### Script: 
 
-1) Visualizzazione dati satellitari in R: **R_code_sr.r**
+1) Visualizzazione dati satellitari in R (Area di Studio): **R_code_sr.r**
 2) Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto): **R_code_spectral_indices.r**
 3) Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis): **R_code_time_series_greenland.r**
 4) Diminuzione di ossido di azoto durante il primo lockdown (Time Series Analysis): **R_code_time_series_ EN.r**
