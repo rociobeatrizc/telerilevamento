@@ -1,33 +1,31 @@
-# Analisi di pattern spaziali. 
-# Pattern interessanti: variazioni geostrutturali, variazioni ecologiche (da un land cover all'altro). 
-# Il ghiacciaio del Similaun (dati Sentinel, 10m): variabilità spaziale (eterogeneità e varianza) - usando indici di vegetazione e Principal Components.
-# Maggiore eterogeneità (detta anche variability) nel paesaggio equivale a maggiore biodiversità.
-# Ciascun elemento di biodiversità ha la propria riflettanza. 
-# Appaiono come zone di differenziazione fra un punto e un altro del paesaggio. 
+# Analisi di pattern spaziali: visualizzazione di variazioni geostrutturali e variazioni ecologiche all'interno di un'immagine satellitare.  
+# Maggiore eterogeneità (detta anche variability) nel paesaggio equivale a maggiore biodiversità. 
+# Ciascun elemento che compone la biodiversità ha la propria riflettanza.
+# Come esempio, si consideri il ghiacciaio del Similaun (dati Sentinel). 
 # Ghiacciaio del Similaun (Otzi). Il bosco è rosso scuro, le praterie rosso chiaro, le zone scure sono i crepacci, c'è la neve e si vede l'acqua (assorbe IR).
 
-# Color maps designed to improve graph readability for readers with common forms of color blindness and/or color vision deficiency.
+# Installazione del pacchetto Viridis, sviluppato per permettere a chi ha deficit visivi una buona visualizzazione dei colori. 
 install.packages("viridis")
 
-library(raster)
-library(RStoolbox) # For image viewing and variability calculation
-library(ggplot2) # For ggplot plotting
-library(patchwork) # Multiframe with ggplot2 graphs
-library(viridis)
+# Librerie. 
+library(raster)    # Lettura e analisi di dati spaziali: funzioni base. 
+library(RStoolbox) # Strumenti per processare e analizzare immagini telerilevate: da qui proviene la funzione focal. 
+library(ggplot2)   # Per la produzione di grafici a partire da un set di dati.
+library(patchwork) # Permette di creare multiframe con i grafici generati da ggplot. 
+library(viridis)   # Per incrementare la leggibilità. 
 
+# Impostazione Working Directory
+setwd("C:/lab")
+
+# Importazione immagine Sentinel contenente il ghiacciaio: trattandosi di un'immagine satellitare a più bande, occorre usare brick (libreria raster).   
+sen <- brick("sentinel.png")
+
+# Immagine RGB creata con ggplot, lo stretch lineare è di default e non occorre specificarlo.  
 # 1 : NIR 
 # 2 : Red
 # 3 : Green
-
-# I dati telerilevati vengono salvati come dati temporanei e non possono essere inclusi in un progetto. 
-setwd("C:/lab")
-
-# Lo stretch lineare viene fatto in automatico. 
-sen <- brick("sentinel.png")
-
-ggRGB(sen, 1, 2, 3, stretch="lin") 
+ggRGB(sen, 1, 2, 3) 
 dev.off()
-# Suolo: zone scure
 
 g1 <- ggRGB(sen, 1, 2, 3)
 
