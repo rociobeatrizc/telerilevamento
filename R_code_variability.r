@@ -1,4 +1,5 @@
-# Spatial Variability in Similaun glacier: the more variability we see, the more biodiversity is present.  
+# Analisi di pattern spaziali. 
+# Pattern interessanti: variazioni geostrutturali, variazioni ecologiche (da un land cover all'altro). 
 # Il ghiacciaio del Similaun (dati Sentinel, 10m): variabilità spaziale (eterogeneità e varianza) - usando indici di vegetazione e Principal Components.
 # Maggiore eterogeneità (detta anche variability) nel paesaggio equivale a maggiore biodiversità.
 # Ciascun elemento di biodiversità ha la propria riflettanza. 
