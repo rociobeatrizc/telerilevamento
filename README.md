@@ -10,6 +10,7 @@
 5) Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon): **R_code_classification.r**
 7) Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni): **R_code_land_cover.r**
 8) Variabilità di pattern spaziali: **R_code_variability.r**
-9) Modello di Distribuzione di Specie: **R_code_sdm.r**
+9) Analisi Multivariata, resampling e variabilità sulla Prima Componente: **R_code_multivariate_analysis.r**
+10) Modello di Distribuzione di Specie: **R_code_sdm.r**
 
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
