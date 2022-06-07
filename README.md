@@ -12,5 +12,7 @@
 8) Variabilità di pattern spaziali (Ghiacciaio del Similaun): **R_code_variability.r**
 9) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
 10) Modello di Distribuzione di Specie: **R_code_sdm.r**
-
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
+12) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
+
+
