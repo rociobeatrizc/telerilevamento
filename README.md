@@ -4,16 +4,25 @@
 #### Script: 
 
 1) Visualizzazione dati satellitari in R (Riserva Indigena Parakanã): **R_code_sr.r**.\
-Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.
+Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.\
+
 2) Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto): **R_code_spectral_indices.r**
+
 3) Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis): **R_code_time_series_greenland.r**
+
 4) Diminuzione di ossido di azoto durante il primo lockdown (Time Series Analysis): **R_code_time_series_ EN.r**
+
 5) Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon): **R_code_classification.r**
+
 7) Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni): **R_code_land_cover.r**
+
 8) Variabilità di pattern spaziali (Ghiacciaio del Similaun): **R_code_variability.r**
+
 9) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
+
 10) Modello di Distribuzione di Specie: **R_code_sdm.r**
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
-12) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
+
+11) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
 
 
