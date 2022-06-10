@@ -5,7 +5,7 @@
 
 1) Visualizzazione dati satellitari in R (Riserva Indigena Parakanã): **R_code_sr.r**.\
 Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa. \ 
-![Rplot01](https://user-images.githubusercontent.com/63868353/173094447-fcccc09b-bd2a-47b0-a8c4-ec0d94792141.png)\
+![Rplot01](https://user-images.githubusercontent.com/63868353/173094447-fcccc09b-bd2a-47b0-a8c4-ec0d94792141.png)
 Visualizzazione di 4 bande. 
 2) Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto): **R_code_spectral_indices.r**
 3) Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis): **R_code_time_series_greenland.r**
