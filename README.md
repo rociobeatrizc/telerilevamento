@@ -1,6 +1,6 @@
 # Telerilevamento Geo-Ecologico A.A. 2021-2022
 
-## Scienze e Gestione della Natura. 
+## Scienze e Gestione della Natura
 #### Script: 
 
 1) Visualizzazione dati satellitari in R (Riserva Indigena Parakanã): **R_code_sr.r**.\
