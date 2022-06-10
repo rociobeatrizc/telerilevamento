@@ -4,7 +4,7 @@
 #### Script: 
 
 1) Visualizzazione dati satellitari in R (Riserva Indigena Parakanã): **R_code_sr.r**.\
-Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.\
+Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.
 
 2) Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto): **R_code_spectral_indices.r**
 
