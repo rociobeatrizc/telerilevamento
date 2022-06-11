@@ -1,50 +1,56 @@
-# Classification: from raster data to classes. 
-# Import some code already done
-setwd("C:/lab") 
-source("r_code.txt")
+# Classificazione di immagini.
+# La classificazione non supervisionata permette di passare dai dati continui ad una suddivisione in classi.  
+# Analisi e gestione di dati satellitari: da questo pacchetto proviene unsuperClass. 
+install.packages("RStoolbox")
 
-# Satellitar data
+# Librerie
 library(raster)
-
-# unsuperClass
-install.packages("RStoolbox") 
 library(RStoolbox)
 
-# Solar Orbiter 
-so <- brick("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg") 
-so
+# Set WD
+setwd("C:/lab") 
 
+## Importare un pezzo di codice già scritto. 
+source("r_code.txt")
+
+## Solar Orbiter
+# Import di un'immagine di Solar Orbiter, una missione ESA che cattura immagini ravvicinate del Sole. 
+# Contiene le regioni energeticamente attive. 
+so <- brick("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg") 
+
+# Plot RGB
 plotRGB(so, 1,2,3, stretch="lin")
 plotRGB(so, 1,2,3, stretch="hist")
 
-# We set 3 classes: pixels will be divided into these. 
+# unsuperClass: unsupervised clustering of Raster data using kmeans clustering. 
+# Outputs. 
+# Model: tre raggruppamenti (come richiesto in nClasses) e rispettive dimensioni.
+# Map: oggetto Raster all'interno del quale ciascun pixel è nella prima, seconda oppure terza classe.  
 soc <- unsuperClass(so, nClasses=3)
 soc
 plot(soc$map)
 dev.off()
 
-# Grand Canyon
-# https://landsat.visibleearth.nasa.gov/view.php?id=80948
-# When John Wesley Powell led an expedition down the Colorado River and through the Grand Canyon in 1869, he was confronted with a daunting landscape. 
-# At its highest point, the serpentine gorge plunged 1,829 meters (6,000 feet) from rim to river bottom, making it one of the deepest canyons in the United States. 
-# In just 6 million years, water had carved through rock layers that collectively represented more than 2 billion years of geological history, nearly half of the time Earth has existed.
 
-# It is possible to associate a pixel which is still not classificated to the nearest spectral class. 
-# Import satellitar image already processed. 
+## Grand Canyon 
+# Come associo un pixel non ancora classificato ad una classe? Si sceglie quella spettralmente più vicina. 
+# In questo modo si può, ad esempio, discriminare fra i vari tipi mineralogici nel Grand Canyon.  
+# Immagine già elaborata, solo nel visibile. 
 gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg") 
 gc
-plotRGB(gc, r=1, g=2, b=3, stretch="hist") 
+plotRGB(gc, r=1, g=2, b=3, stretch="hist")
 
-# Two classes. 
-gcclass2 <- unsuperClass(gc, nClasses = 2 ) )
+# Classificazione 
+gcclass2 <- unsuperClass(gc, nClasses = 2)
 gcclass2
-# Classification gives us an object that includes the model, output map, statistics. 
+# La classificazione produce un oggetto che ha all'interno il modello in sè, la mappa in uscita, le statistiche univariate
 
 plot(gcclass2$map)
-# Two classes, two colors. 
+# Classe 1 e 2. I valori intermedi non hanno senso. 
+
 dev.off()
 
-# Four classes, four colors. 
+# 4 classi all'interno delle quali distribuire i pixel. 
 gcclass4 <- unsuperClass(gc, nClasses=4)
 gcclass4
 plot(gcclass4$map)
