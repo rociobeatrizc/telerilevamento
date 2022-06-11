@@ -36,7 +36,9 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
   Maggior eterogeneità corrisponde a maggior biodiversità. Come misura della variabilità si prende la deviazione standard. \
   Applicando una finestra mobile (Moving Window) su una banda significativa, ovvero una matrice quadrata di dimensioni da stabilire, viene calcolata la deviazione       standard dei pixel all'interno della matrice: il risultato si colloca nel pixel centrale e la finestra si sposta fino a completare il file raster. 
 
-8) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
+8) #### **R_code_multivariate_analysis.r** ####
+   *Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun).*\
+   Spesso è necessario compattare un sistema multidimensionale in un numero inferiore di variabili. La Principal Component Analysis ci permette di passare da più          bande fra loro correlate ad una sola, in grado di spiegare la maggior parte della variabilità: la variabile (banda) a cui si riduce il sistema viene detta Prima        Componente, ed è su quest'ultima che si lavora.  
 
 9) Modello di Distribuzione di Specie: **R_code_sdm.r**
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
