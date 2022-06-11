@@ -81,3 +81,65 @@ plot(l2011$B1_sre, col=cl_2)
 plot(l2011$B2_sre, col=cl_3)
 plot(l2011$B3_sre, col=cl_4) 
 plot(l2011$B4_sre, col=cl_5)
+
+## RGB
+# Si possono montare bande insieme per creare immagini a colori secondo lo schema RGB (Red, Green, Blue).  
+
+# Canale NIR. 
+cl_6 <- colorRampPalette(c("coral", "coral3", "dark red")) (100)
+plot(l2011$B4_sre, col=cl_6)
+dev.off()
+
+# RGB components. Qualsiasi computer/apparato lavora con lo schema dei tre colori fondamentali: rosso, verde, blu.
+# Un plot satellitare richiede tre bande per volta, che vanno montate in corrispondenza dello schema RGB.
+
+# Bande Landsat
+# B1: blue
+# B2: green
+# B3: red
+# B4: NIR
+
+# Rosso: banda 3. Verde: banda 2. Blu: banda 1. 
+# stretch amplia per vedere meglio i contrasti, può essere lineare o a istogrammi
+# Il risultato rappresenta la riserva naturale a 800 km esattamente come le vedrebbe l'occhio umano. 
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin") 
+
+# Associando il rosso alla banda del NIR, tutto quello che riflette nel NIR diventa di colore rosso. 
+# Nel mezzo ci sono zome d'ombra (polmone) 
+# Le piante riflettono molto nell'IR, il tessuto a palizzata fa sì che rimbalzi (venga riflesso) il NIR. 
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+
+# Si sposta l'IR nella componente GREEN. Tutto quello che riflette nel NIR diventa verde. 
+plotRGB(l2011, r=3, g=4, b=2, stretch="lin")
+
+# Come fa un albero di diversi metri a condurre l'acqua fino in cima?
+# La pianta rilascia acqua dalla chioma attraverso la traspirazione: in questo modo l'acqua in basso sale per differenza di potenziale (va verso una zona dove la pressione è minore).
+# Si tratta di un meccanisco ciclico, l'acqua liberata torna sottoforma di pioggia. 
+
+# NIR nel verde: tutto quello che diventa giallo è suolo nudo. 
+plotRGB(l2011, r=3, g=2, b=4, stretch="lin") 
+
+# Sullo stretch lineare: presa una certa banda, posti in ascissa i suoi valori, è possibile che questi siano circoscritti in un range. 
+# Lo stretch crea una nuova banda all'interno della quale il valore minimo della banda originale viene posto come 0, mentre il valore massimo diventa 100. 
+# In questo modo si ampliano i valori possibili, riscalandoli grazie ad una funzione lineare: aumento la potenza di visualizzazione dei colori.  
+# Stretch per istogrammi: invece di usare una funzione lineare, si usa una curva che provoca un forte aumento. 
+plotRGB(l2011, r=3, g=4, b=2, stretch="hist") 
+
+# Grazie allo stretch lineare si vede un'alta differenziazione nelle colorazioni, si vedono elementi che altrimenti non si vedono. 
+# Il NIR governa nel caso di vegetazione. Non c'è una composizione ideale nelle altre bande.
+par(mfrow= c(2,1)) # Si ragiona per RIGHE
+plotRGB(l2011, r=3, g=2, b=1, stretch="lin") # Occhio umano
+plotRGB(l2011, r=3, g=4, b=2, stretch="hist") # Alta potenza risolutiva 
+
+# Immagine fine anni '80
+l1988 <- brick("p224r63_1988.grd")
+l1988
+dev.off()
+
+# MultiFrame 
+par(mfrow= c(2,1))
+plotRGB(l1988, r=4, g=3, b=2, stretch="lin")
+plotRGB(l2011, r=4, g=3, b=2, stretch="lin")
+
+# 1988: inizio urbanizzazione, il colore è dovuto alla foschia (sensore diverso). Vengono aperte le prime strade. 
+# Ora c'è una riserva naturale, motivo del bordo. Il sistema intorno deve essere sostenibile. 
