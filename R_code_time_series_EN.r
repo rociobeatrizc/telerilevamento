@@ -1,22 +1,28 @@
-# A consequence of the first lockdown on March 2020 due to COVID-19 was a significant decrease of nitrogen oxides. 
-# Sentinel2, a satellite with a power resolution of 10 meters, is able to measure nitrogen oxide through reflectances. 
+# Durante il primo lockdown c'è stata una forte diminuzione di ossidi di azoto, che derivano direttamente dal traffico umano. 
+# Lo scopo è visualizzare tale diminuzione usando Sentinel2, una missione spaziale ESA il cui satellite ha 10 metri di risoluzione.
+# Sentinel2 è in grado di misurare anche l'ossido di azoto, basandosi sulle riflettanze.
 
+# Libreria richiesta
 library(raster)
 
-# In our directory there is a set of 13 Sentinel's images, from January to March. 
+# Cartella di lavoro
 setwd("C:/lab/EN") 
 
-# Raster function works on a single layer: in this case we consider the first image, dating back to January 2020. 
+# Funzioni per importare i dati.  
+# BRICK: immagine satellitare a più bande. 
+# RASTER: un solo layer.
+
+# Prima immagine
 EN01 <- raster("EN_0001.png")
 cl <- colorRampPalette(c('red','orange','yellow'))(100) 
 plot(EN01, col=cl)
 dev.off()
 
-# Thirteenth image shows a decrease in nitrogen circulation. 
-EN13 <- raster("EN_0013.png")
+# Ultima immagine: diminuzione consistente. 
+EN13 <- raster("EN_0013.png") 
 plot(EN13, col=cl)
 
-# Import all the images
+# Importo separatamente tutti i file.
 EN01 <- raster("EN_0001.png")
 EN02 <- raster("EN_0002.png")
 EN03 <- raster("EN_0003.png")
@@ -31,7 +37,7 @@ EN11 <- raster("EN_0011.png")
 EN12 <- raster("EN_0012.png")
 EN13 <- raster("EN_0013.png")
 
-# Plot all data together 
+# Plot
 par(mfrow=c(4,4))
 plot(EN01, col=cl)
 plot(EN02, col=cl)
@@ -47,42 +53,53 @@ plot(EN11, col=cl)
 plot(EN12, col=cl)
 plot(EN13, col=cl)
 
-# Stacking vectors concatenates multiple vectors into a single vector along with a factor indicating where each observation originated. 
+# Stack crea una sola immagine: ogni immagine di cui si compone diventa un layer. 
 EN <- stack(EN01, EN02, EN03, EN04, EN05, EN06, EN07, EN08, EN09, EN10, EN11, EN12, EN13)
 
-# Creating a list of files linked by "EN". 
+# Plot dello stack. 
+plot(EN, col=cl)
+
+# Plot della prima immagine dello stack. 
+plot(EN$EN_0001, col=cl)
+
+## Si semplifica il procedimento.
+# Si importano con list.files i file che contengono la stringa "EN", creando una lista. 
 rlist <- list.files(pattern="EN")
 rlist
 
-# Importing all the data together with the lapply function
+# A questa lista di file, si applica con lapply la stessa funzione: raster
 list_rast <- lapply(rlist, raster)
-list_rast 
+list_rast
 
-# stack function puts all the data in a single file
+# Infine, stack mette insieme in un'unica immagine 
 EN_stack <- stack(list_rast)
 EN_stack
 
-# Exercise: plot only the first image of the stack
+# Plot della prima immagine dello stack
 cl <- colorRampPalette(c('red','orange','yellow'))(100) # 
 plot(EN_stack$EN_0001, col=cl)
 
-# or
+# oppure 
 plot(EN_stack[[1]], col=cl)
 
-# automated processing source function
-source("name_of_your_file.r")
-
-# Plot EN01 besides EN13: two ways. 
-# MultiFrame
+# EN01 di fianco a EN13
 par(mfrow=c(1,2))
-plot(EN_stack$EN_0001, col=cl, main="First image")
-plot(EN_stack$EN_0013, col=cl, main="Last Image")
+plot(EN_stack$EN_0001, col=cl, main="inizio")
+plot(EN_stack$EN_0013, col=cl, main="fine")
+?plot
 
-# By stack 
+# Stack con le due immagini: nuova immagine con due layer. 
 s_113 <- stack(EN_stack[[1]], EN_stack[[13]])
 plot(s_113, col=cl) 
+dev.off()
 
-# Difference between first and last recording of nitrogen oxide. 
-difen <- EN_stack[[1]] - EN_stack[[13]]
+# Differenza fra azoto iniziale e finale. 
+diff <- EN_stack[[1]] - EN_stack[[13]]
+
+# oppure: dif <- EN_stack$EN_0001 - EN_stack$EN_0013
 cldif <- colorRampPalette(c('blue','white','red'))(100)
-plot(difen, col=cldif) 
+plot(diff, col=cldif) 
+
+# Zone d'Europa con la decrescita più forte. 
+plotRGB(EN_stack, r=1, g=7, b=13, stretch="lin")
+plotRGB(EN_stack, r=1, g=7, b=13, stretch="hist")
