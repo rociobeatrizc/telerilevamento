@@ -11,7 +11,7 @@
 *Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto)*. \
 In un pixel con un periodo di picco di biomassa, ovvero quando la vegetazione è in salute in una scala di riflettanza (range da 0 a 100) il valore nel NIR sarà alto: lo stesso pixel ha una riflettanza nel rosso bassa. \
 *DVI = NIR - RED* \
-In una pianta che soffre il mesofillo foliare collassa variando gli angoli di riflessione: si abbassa la riflettanza nel NIR, si innalza quella nel rosso (non viene assorbito a sufficienza). \
+In una pianta che soffre il mesofillo della foglia collassa variando gli angoli di riflessione: si abbassa la riflettanza nel NIR, si innalza quella nel rosso (non viene assorbito a sufficienza). \
 L'**NDVI** (Normalized Difference Vegetation Index) è il DVI diviso per la somma di NIR e RED: essendo un valore normalizzato, consente di fare confronti. 
 
 3) #### **R_code_time_series_greenland.r** ####
