@@ -42,8 +42,12 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
 
 9) #### **R_code_sdm.r** ####
   *Modello di Distribuzione di Specie*.\
-  Un modello di distribuzione di specie ha lo scopo di fare predizioni su dove si trova una certa specie e fornire informazioni sulle variabili che condizionano la sua   distribuzione. A terra si misura la presenza/assenza di una determinata specie e per mezzo dei predittori (variabili ambientali) si fa una previsione della posizione   degli individui di tale specie dove non sono stati campionati. Il risultato è una mappa di probabilità, all'interno della quale i pixel hanno un valore compreso fra   0 e 1.  
-  
+  Un modello di distribuzione di specie ha lo scopo di fare predizioni su dove si trova una certa specie e fornire informazioni sulle variabili che condizionano la sua   distribuzione. A terra si misura la presenza/assenza di una determinata specie e per mezzo dei predittori (variabili ambientali) si fa una previsione della posizione   degli individui di tale specie dove non sono stati campionati. Il risultato è una mappa di probabilità, all'interno della quale i pixel hanno un valore compreso fra   0 e 1.  \
+  1) Import shapefile contenente i punti che localizzano gli individui della specie: informazioni sulla presenza/assenza.  
+  2) Import predittori, ovvero variabili ambientali. 
+  3) Si assegna ogni predittore ad una variabile. 
+  4) Creazione del modello lineare usando come train i punti, come predittori le variabili ambientali. 
+  5) Mappa finale di previsione: oggetto raster con la probabilità di trovare la specie nello spazio. 
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
 
 
