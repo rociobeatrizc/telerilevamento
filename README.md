@@ -27,8 +27,10 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
   *Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon)*.\
    In Solar Orbiter si dividono le regioni energetiche in 3 classi, nell'immagine del Grand Canyon in 2 e poi 4. 
 
-7) Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni): **R_code_land_cover.r**
-
+7) #### **R_code_land_cover.r** ####
+  *Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni)*. \
+  La classificazione può essere utile per contare quanti pixel appartengono a ciascuna classe, quantificando la differenza fra prima/dopo. 
+  
 8) Variabilità di pattern spaziali (Ghiacciaio del Similaun): **R_code_variability.r**
 
 9) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
