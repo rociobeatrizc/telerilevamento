@@ -7,15 +7,16 @@
   *Visualizzazione dati satellitari in R (Riserva Indigena Parakanã)*. \
   Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale   0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.
  
-
 2) #### **R_code_spectral_indices.r** ####
 *Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto)*. \
 In un pixel con un periodo di picco di biomassa, ovvero quando la vegetazione è in salute in una scala di riflettanza (range da 0 a 100) il valore nel NIR sarà alto: lo stesso pixel ha una riflettanza nel rosso bassa. \
-DVI = NIR - RED \
+*DVI = NIR - RED* \
 In una pianta che soffre il mesofillo foliare collassa variando gli angoli di riflessione: si abbassa la riflettanza nel NIR, si innalza quella nel rosso (non viene assorbito a sufficienza). \
-L'NDVI è il DVI diviso per la somma di NIR e RED: essendo un valore normalizzato, consente di fare confronti. 
+L'**NDVI** (Normalized Difference Vegetation Index) è il DVI diviso per la somma di NIR e RED: essendo un valore normalizzato, consente di fare confronti. 
 
-3) Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis): **R_code_time_series_greenland.r**
+3) #### **R_code_time_series_greenland.r** ####
+*Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis)*. \
+Utilizzando la temperatura della terra al suolo, si visualizza il variare di questo parametro nel tempo. I layer che contengono le temperature negli anni sono separati: si crea una sola immagine che li contiene tutti grazie alle funzioni *list.files, lapply* su *raster* e *stack*. 
 
 4) Diminuzione di ossido di azoto durante il primo lockdown (Time Series Analysis): **R_code_time_series_ EN.r**
 
