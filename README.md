@@ -37,12 +37,15 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
   Applicando una finestra mobile (Moving Window) su una banda significativa, ovvero una matrice quadrata di dimensioni da stabilire, viene calcolata la deviazione       standard dei pixel all'interno della matrice: il risultato si colloca nel pixel centrale e la finestra si sposta fino a completare il file raster. 
 
 8) #### **R_code_multivariate_analysis.r** ####
-   *Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun).*\
-   Spesso è necessario compattare un sistema multidimensionale in un numero inferiore di variabili. La Principal Component Analysis ci permette di passare da più          bande fra loro correlate ad una sola, in grado di spiegare la maggior parte della variabilità: la variabile (banda) a cui si riduce il sistema viene detta Prima        Componente, ed è su quest'ultima che si lavora.  
+  *Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun).* \
+  Spesso è necessario compattare un sistema multidimensionale in un numero inferiore di variabili. La Principal Component Analysis ci permette di passare da più         bande fra loro correlate ad una sola, in grado di spiegare la maggior parte della variabilità: la variabile (banda) a cui si riduce il sistema viene detta Prima       Componente, ed è su quest'ultima che si lavora.  
 
-9) Modello di Distribuzione di Specie: **R_code_sdm.r**
+9) #### **R_code_sdm.r** ####
+  *Modello di Distribuzione di Specie*.\
+  Un modello di distribuzione di specie ha lo scopo di fare predizioni su dove si trova una certa specie e fornire informazioni sulle variabili che condizionano la sua   distribuzione. A terra si misura la presenza/assenza di una determinata specie e per mezzo dei predittori (variabili ambientali) si fa una previsione della posizione   degli individui di tale specie dove non sono stati campionati. Il risultato è una mappa di probabilità, all'interno della quale i pixel hanno un valore compreso fra   0 e 1.  
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
 
-10) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
+10) #### **R_code_colorist.r** ####
+    *Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel   tempo.*
 
 
