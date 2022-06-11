@@ -24,7 +24,7 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
    
 5) #### **R_code_classification.r** ####
   *Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon)*.\
-   In Solar Orbiter si dividono le regioni energetiche in 3 classi, nell'immagine del Grand Canyon in 2 e poi 4
+   In Solar Orbiter si dividono le regioni energetiche in 3 classi, nell'immagine del Grand Canyon in 2 e poi 4. 
 
 7) Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni): **R_code_land_cover.r**
 
