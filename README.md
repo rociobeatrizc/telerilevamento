@@ -31,7 +31,10 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
   *Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni)*. \
   La classificazione può essere utile per contare quanti pixel appartengono a ciascuna classe, quantificando la differenza fra prima/dopo. 
   
-8) Variabilità di pattern spaziali (Ghiacciaio del Similaun): **R_code_variability.r**
+8) #### **R_code_variability.r** ####
+  *Variabilità di pattern spaziali (Ghiacciaio del Similaun).* \
+  Maggior eterogeneità corrisponde a maggior biodiversità. Come misura della variabilità si prende la deviazione standard. \
+  Applicando una finestra mobile (Moving Window) su una banda significativa, ovvero una matrice quadrata di dimensioni da stabilire, viene calcolata la deviazione       standard dei pixel all'interno della matrice: il risultato si colloca nel pixel centrale e la finestra si sposta fino a completare il file raster. 
 
 9) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
 
