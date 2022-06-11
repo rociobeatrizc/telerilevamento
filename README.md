@@ -1,12 +1,15 @@
 # Telerilevamento Geo-Ecologico A.A. 2021-2022
 
 ## Scienze e Gestione della Natura
-#### Script: 
+### Script: 
 
-1) Visualizzazione dati satellitari in R (Riserva Indigena Parakanã): **R_code_sr.r**.\
-Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale 0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.
+1) #### **R_code_sr.r**.
+  *Visualizzazione dati satellitari in R (Riserva Indigena Parakanã)*. \
+  Ogni pixel esiste nelle diverse bande con valori diversi di riflettanza, definita come il rapporto fra radiazione riflessa e radiazione incidente: questo valore vale   0 quando non c'è radiazione uscente, vale 1 quando tutta la radiazione incidente viene riflessa.
+ 
 
-2) Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto): **R_code_spectral_indices.r**\
+2) #### **R_code_spectral_indices.r** ####
+*Indici Spettrali, vegetazione ed NDVI (deforestazione dell'area attorno a Rio Peixoto)*. \
 In un pixel con un periodo di picco di biomassa, ovvero quando la vegetazione è in salute in una scala di riflettanza (range da 0 a 100) il valore nel NIR sarà alto: lo stesso pixel ha una riflettanza nel rosso bassa. \
 DVI = NIR - RED \
 In una pianta che soffre il mesofillo foliare collassa variando gli angoli di riflessione: si abbassa la riflettanza nel NIR, si innalza quella nel rosso (non viene assorbito a sufficienza). \
