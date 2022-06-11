@@ -27,20 +27,20 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
   *Classificazione dei pixel all'interno di un'immagine (fasce energetiche Solar Orbiter, composizione mineralogica Grand Canyon)*.\
    In Solar Orbiter si dividono le regioni energetiche in 3 classi, nell'immagine del Grand Canyon in 2 e poi 4. 
 
-7) #### **R_code_land_cover.r** ####
+6) #### **R_code_land_cover.r** ####
   *Mappe di Land Cover (sulla copertura del suolo attorno a Rio Peixoto in due diversi anni)*. \
   La classificazione può essere utile per contare quanti pixel appartengono a ciascuna classe, quantificando la differenza fra prima/dopo. 
   
-8) #### **R_code_variability.r** ####
+7) #### **R_code_variability.r** ####
   *Variabilità di pattern spaziali (Ghiacciaio del Similaun).* \
   Maggior eterogeneità corrisponde a maggior biodiversità. Come misura della variabilità si prende la deviazione standard. \
   Applicando una finestra mobile (Moving Window) su una banda significativa, ovvero una matrice quadrata di dimensioni da stabilire, viene calcolata la deviazione       standard dei pixel all'interno della matrice: il risultato si colloca nel pixel centrale e la finestra si sposta fino a completare il file raster. 
 
-9) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
+8) Analisi Multivariata, resampling e variabilità sulla Prima Componente (Riserva Indigena Parakanã, Ghiacciaio Similaun): **R_code_multivariate_analysis.r**
 
-10) Modello di Distribuzione di Specie: **R_code_sdm.r**
+9) Modello di Distribuzione di Specie: **R_code_sdm.r**
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
 
-11) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
+10) Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel tempo: **R_code_colorist.r**
 
 
