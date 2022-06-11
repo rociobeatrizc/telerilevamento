@@ -55,4 +55,7 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
 10) #### **R_code_colorist.r** ####
     *Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel   tempo.*
 
+11) #### **R_code_esame_telerilevamento.r** ####
+    Analisi del trend di cementificazione e scomparsa di aree verdi nel sud-est della capitale del Cile, Santiago, nel corso di due decadi (1990-2000, 2000-2010). \
+    RGB, NDVI, differenza di NDVI, divisione dei pixel in classi ed eterogeneità del paesaggio. 
 
