@@ -48,7 +48,7 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
    3) Si assegna ogni predittore ad una variabile. 
    4) Creazione del modello lineare usando come train i punti, come predittori le variabili ambientali. 
    5) Mappa finale di previsione: oggetto raster con la probabilità di trovare la specie nello spazio. 
-  
+   La specie potrebbe essere il *Bufo Bufo*.
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
 
 
