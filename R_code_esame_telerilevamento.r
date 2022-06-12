@@ -199,10 +199,11 @@ set.seed(3)
 plot(lan90c$map, main = "3 Classes")
 plot(lan00c$map)
 
-# Salva PDF
+# Salva 2 PDF
 pdf("class_santiago.pdf")
-par(mfrow=c(2,1))
 plot(lan90c$map, main = "3 Classes")
+dev.off()
+pdf("class2_santiago.pdf")
 plot(lan00c$map)
 dev.off()
 
