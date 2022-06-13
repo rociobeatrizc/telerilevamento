@@ -17,7 +17,7 @@ L'**NDVI** (Normalized Difference Vegetation Index) è il DVI diviso per la somm
 
 3) #### **R_code_time_series_greenland.r** ####
 *Evoluzione nel tempo della Temperatura Superficiale in Groenlandia (Time Series Analysis)*. \
-Utilizzando la temperatura della terra al suolo, si visualizza il variare di questo parametro nel tempo. I layer che contengono le temperature negli anni sono separati: si crea una sola immagine che li contiene tutti grazie alle funzioni *list.files, lapply* su *raster* e *stack*. 
+Utilizzando la temperatura della terra al suolo, si visualizza il variare di questo parametro nel tempo. I layer che contengono le temperature negli anni sono separati: si crea una sola immagine che li contiene tutti grazie alle funzioni *list.files, lapply* di *raster* e *stack*. 
 
 4) #### **R_code_time_series_ EN.r** ####
   *Diminuzione di ossido di azoto durante il primo lockdown (Time Series Analysis)*. \
