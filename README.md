@@ -51,11 +51,12 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
    La specie potrebbe essere il *Bufo Bufo*. \
 ![rospaccio](https://user-images.githubusercontent.com/63868353/171892805-33846864-6692-4844-b808-3f21bf869782.jpg)
 
-
-10) #### **R_code_colorist.r** ####
+11) #### **R_code_LiDAR.r** ####
+   CHM (altezza vegetazione) ottenuta grazie alla differenza fra DSM e DTM. 
+12) #### **R_code_colorist.r** ####
     *Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel   tempo.*
 
-11) #### **R_code_esame_telerilevamento.r** ####
+13) #### **R_code_esame_telerilevamento.r** ####
     Analisi del trend di cementificazione e scomparsa di aree verdi nel sud-est della capitale del Cile, Santiago, nel corso di due decadi (1990-2000, 2000-2010). \
     RGB, NDVI, differenza di NDVI, divisione dei pixel in classi ed eterogeneità del paesaggio. 
 
