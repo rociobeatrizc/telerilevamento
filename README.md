@@ -53,6 +53,7 @@ Utilizzando la temperatura della terra al suolo, si visualizza il variare di que
 
 11) #### **R_code_LiDAR.r** ####
    CHM (altezza vegetazione) ottenuta grazie alla differenza fra DSM e DTM. 
+   
 12) #### **R_code_colorist.r** ####
     *Pacchetto colorist per fornire metodologie aggiuntive per studiare, comprendere e comunicare le informazioni sulle distribuzioni delle specie nello spazio e nel   tempo.*
 
